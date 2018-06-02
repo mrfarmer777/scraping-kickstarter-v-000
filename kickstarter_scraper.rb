@@ -15,8 +15,8 @@ def create_project_hash
   projects = {}
 
   kickstarter.css("li.project.grid_4").each do |project| #get the projects from parsed HTML node list, do with each...
-    title=project.css('h2.bbcard_name strong a').text
-    projects[title]={} #initialize a project hash within the projects hash
+    title=project.css('h2.bbcard_name strong a').text #go grab ahold of the title from the html node list
+    projects[title.to_sym]={} #initialize a project hash within projects hash whose key is the project's title symbol-ized
   end
 
   projects
